@@ -1,56 +1,27 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import AffirmationCard from "./AffirmationCard"
 import "./Affirmation.css"
 
-export default function Affirmation(){
+export default function Affirmation( {content, setContent, updatedContent, setUpdatedContent} ) {
 
-    const [content, setContent] = useState([])
-    const [title, setTitle] = useState()
-    const [message, setMessage] = useState()
-
-    const grabContent = () => {
-        fetch('http://127.0.0.1:5000/getaff')
-        .then(res => res.json())
-        .then((data)=> {
-            //console.log(data)
-            setContent(data)
-        })
-        .catch(alert)
-
-    const insertContent = () => {
-        fetch('http://127.0.0.1:5000/newaff'), {
-            method: 'POST',
-            headers: {
-                'Content-Type':'application/json'
-            },
-            body: JSON.stringify({title, message})
-        }}
-
+    useEffect(() => {
+        fetch('http://127.0.0.1:5002/getaff')
+            .then(res => res.json())
+            .then(data => setContent(data))
+    }, [updatedContent])
+    console.log("affirm.jsx", content)
 
     return (
         <>
-        <div className="ser">
-            <div className="affirm-container">
-                {
-                content
-                    ? content.map(affirm => <AffirmationCard key={affirm._id} affirm={affirm}/>)
-                    : <p>NOT LOADED</p>
-                }</div>
-        </div>
-        <button onClick={()=>{
-                console.log(content)
-                grabContent()
-            }}>Click ME</button>
-
-        <div>
-        <form>
-            <label for>
-
-            </label>
-        </form>
-        <button onClick={()=> setContent()}></button>
-        </div>
-        
+            <div className="ser">
+                <div className="affirm-container">
+                    {content?.map(element => (
+                        <div key={element._id}>
+                        <AffirmationCard element={element} setContent={setContent} content={content}  updatedContent ={updatedContent} setUpdatedContent = {setUpdatedContent}/>
+                        </div>
+                    ))}
+                </div>
+            </div>
         </>
     )
-} }
+} 
