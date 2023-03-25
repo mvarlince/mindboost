@@ -2,20 +2,18 @@ import { Button, Input, Form } from 'antd'
 
 export default function NewAffirm( {setContent}) {
 
-    const handleSubmit = ({values}) => {
+    const handleSubmit = ({title, quote}) => {
         fetch('http://127.0.0.1:5002/newaff', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({values})
+            body: JSON.stringify({title, quote})
         })
         .then(res => res.json())
-        .then( data => setContent(data) )
-        .then(values='')
-        // quote='' 
+        .then( data => setContent(data))
+        .then(console.error('Affirmation Added'))
         .catch(console.error)
-
     }
 
     return (

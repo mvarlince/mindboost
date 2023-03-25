@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect} from "react"
 import AffirmationCard from "./AffirmationCard"
 import "./Affirmation.css"
 
@@ -13,7 +13,7 @@ export default function Affirmation( {content, setContent, updatedContent, setUp
 
     return (
         <>
-            <div className="ser">
+            {/* <div className="ser"> */}
                 <div className="affirm-container">
                     {content?.map(element => (
                         <div key={element._id}>
@@ -21,7 +21,7 @@ export default function Affirmation( {content, setContent, updatedContent, setUp
                         </div>
                     ))}
                 </div>
-            </div>
+            {/* </div> */}
         </>
     )
 } 

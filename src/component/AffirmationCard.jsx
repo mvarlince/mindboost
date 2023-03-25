@@ -21,7 +21,6 @@ const id = element._id
         <div className="affirm-card">
             <h2>{element.title}</h2>
             <p>{element.quote}</p>
-            <p> {element._id} </p>
             {/* <p> {date.toLocaleDateString()} </p> */}
             <button onClick={() => {removeAff()}}> delete </button>
         </div>
