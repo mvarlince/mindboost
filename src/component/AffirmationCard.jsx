@@ -1,29 +1,27 @@
-// import { useEffect } from "react"
+export default function AffirmationCard({ element, setContent, content, updatedContent, setUpdatedContent }) {
 
-export default function AffirmationCard ({element, setContent, content, updatedContent, setUpdatedContent}){
+    const id = element._id
 
-const id = element._id
-
-     const removeAff = () => {
+    const removeAff = () => {
         console.log(id)
-         fetch(`http://127.0.0.1:5002/aff/${id}`, {
+        fetch(`http://127.0.0.1:5002/aff/${id}`, {
             method: "DELETE",
             headers: {
-              "Content-Type": "application/json",
+                "Content-Type": "application/json",
             },
-          })
-          .then(data => setUpdatedContent(data))
+        })
+            .then(data => setUpdatedContent(data))
         console.log(content)
-        }
+    }
 
     return (
         <>
-        <div className="affirm-card">
-            <h2>{element.title}</h2>
-            <p>{element.quote}</p>
-            {/* <p> {date.toLocaleDateString()} </p> */}
-            <button onClick={() => {removeAff()}}> delete </button>
-        </div>
+            <div className="affirm-card">
+                <h2>{element.title}</h2>
+                <p>{element.quote}</p>
+                {/* <p> {date.toLocaleDateString()} </p> */}
+                <button onClick={() => { removeAff() }}> delete </button>
+            </div>
         </>
     )
 }

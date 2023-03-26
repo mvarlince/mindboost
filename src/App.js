@@ -10,8 +10,10 @@ function App() {
   const [updatedContent, setUpdatedContent] = useState()
   return (
     <>
-      < Affirmation content={content} setContent={setContent} updatedContent ={updatedContent} setUpdatedContent = {setUpdatedContent}/>
-      <NewAffirm content={content} setContent={setContent}/>
+      <div className='everything'>
+        < Affirmation content={content} setContent={setContent} updatedContent={updatedContent} setUpdatedContent={setUpdatedContent} />
+        <NewAffirm content={content} setContent={setContent} />
+      </div>
     </>
   );
 }
