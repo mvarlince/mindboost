@@ -1,14 +1,17 @@
 import { useEffect } from "react"
 import AffirmationCard from "./AffirmationCard"
-import "./Affirmation.css"
 
 export default function Affirmation({ content, setContent, updatedContent, setUpdatedContent }) {
 
+    const deployedUrl = "https://affirmation-api.web.app"
+    const localUrl = "http://127.0.0.1:5002"
+
     useEffect(() => {
-        fetch('http://127.0.0.1:5002/getaff')
+        fetch(`${deployedUrl}/getaff`)
             .then(res => res.json())
             .then(data => setContent(data))
     }, [updatedContent])
+
     console.log("affirm.jsx", content)
 
     return (
@@ -24,4 +27,4 @@ export default function Affirmation({ content, setContent, updatedContent, setUp
             </div>
         </>
     )
-} 
+}

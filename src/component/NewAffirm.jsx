@@ -3,7 +3,7 @@ import { Button, Input, Form } from 'antd'
 export default function NewAffirm({ setContent }) {
 
     const handleSubmit = ({ title, quote }) => {
-        fetch('http://127.0.0.1:5002/newaff', {
+        fetch('https://mindboost-api.web.app/newaff', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
