@@ -3,7 +3,7 @@ import AffirmationCard from "./AffirmationCard"
 
 export default function Affirmation({ content, setContent, updatedContent, setUpdatedContent }) {
 
-    const deployedUrl = "https://affirmation-api.web.app"
+    const deployedUrl = "https://mindboost-api.web.app"
     const localUrl = "http://127.0.0.1:5002"
 
     useEffect(() => {
